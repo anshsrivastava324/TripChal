@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BroCode Team</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f4f8;
+      color: #222;
+    }
+    section.team {
+      width: calc(100vw - 3cm);
+      margin: 40px auto;
+      padding: 0 0 20px 0;
+      min-width: 0;
+      max-width: 99vw;
+    }
+    .about-us {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #191970;
+      margin-bottom: 3px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
+    }
+    .team-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #222;
+      margin-bottom: 24px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .team-members {
+      display: block;
+      padding: 0;
+      margin: 0 0 26px 0;
+    }
+    .member-card {
+      width: 100%;
+      height: 3.5cm;
+      background: #fff;
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      margin: 0;
+      justify-content: flex-start;
+      transition:
+        box-shadow 0.24s,
+        background 0.25s,
+        transform 0.24s cubic-bezier(.27,.68,.49,1.32);
+      overflow: visible;
+    }
+    .member-card:focus-within,
+    .member-card:hover {
+      z-index: 11;
+      box-shadow: 0 16px 36px rgba(30,30,200,0.12);
+      background: #191970;
+      transform: translateY(-18px) scale(1.033);
+    }
+    .member-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 44px;
+      min-width: 0;
+      width: 78%;
+    }
+    .member-top-row {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+    .member-name {
+      font-size: 1.25rem;
+      color: #1a2250;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-right: 18px;
+      transition: color 0.24s, transform 0.34s;
+      min-width: 120px;
+      white-space: nowrap;
+      padding: 0 8px;
+    }
+    .member-role {
+      font-size: 1.06rem;
+      color: #374575;
+      margin-top: 7px;
+      margin-left: 2px;
+      white-space: nowrap;
+      letter-spacing: 0.05ch;
+      transition: color 0.24s;
+    }
+    .socials {
+      display: flex;
+      gap: 14px;
+      margin-left: 14px;
+    }
+    .socials a {
+      color: #4b72e7;
+      text-decoration: none;
+      font-size: 1.39em;
+      transition: color 0.2s;
+    }
+    .socials a:hover {
+      color: #1625b0;
+    }
+    .member-img-pop {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      width: 136px;
+      height: 136px;
+      min-width: 80px;
+      min-height: 80px;
+      max-width: 160px;
+      max-height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4b72e7;
+      background: #efeef0;
+      box-sizing: border-box;
+      transform: translateY(-50%) scale(0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        opacity 0.38s,
+        transform 0.4s cubic-bezier(.27,.68,.49,1.32),
+        border-color 0.3s,
+        right 0.3s;
+      z-index: 23;
+    }
+    .member-card:focus-within .member-img-pop,
+    .member-card:hover .member-img-pop {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(-50%) scale(1.10);
+      border-color: #fff;
+      box-shadow: 0 4px 30px rgba(30,30,200,0.17);
+      right: -10px;
+    }
+    .member-card:focus-within .member-name,
+    .member-card:hover .member-name,
+    .member-card:focus-within .member-role,
+    .member-card:hover .member-role {
+      color: #fff;
+    }
+    .member-card:focus-within .socials a,
+    .member-card:hover .socials a {
+      color: #fff;
+    }
+    .member-card:focus-within .socials a:hover,
+    .member-card:hover .socials a:hover {
+      color: #4bfa7b;
+    }
+    .about-box {
+      max-width: 800px;
+      margin: 16px auto 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(30,30,100,0.09);
+      border: 1.5px solid #e0e8fe;
+      padding: 1.1em 1.5em;
+      font-size: 1.02rem; /* SLIGHTLY smaller now */
+      line-height: 1.55;
+      color: #20265c;
+      text-align: center;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: box-shadow 0.2s;
+    }
+    @media (max-width: 950px) {
+      .about-box { padding: 0.9em 0.5em; font-size: 0.97rem; }
+      .member-info { margin-left: 12px; width: 70%; }
+      .member-img-pop { right: -6px; width: 82px; height: 82px; }
+      .team-title { font-size: 1.5rem; }
+      .about-us { font-size: 1.08rem; }
+      .member-name { font-size: 1.04rem; }
+      .member-role { font-size: 0.98rem; }
+    }
+    @media (max-width: 500px) {
+      section.team { width: calc(100vw - 1.25cm);}
+      .member-card { height: 2.5cm; }
+      .member-img-pop { right: -2px; width: 48px; height: 48px; }
+      .about-us { font-size: 1rem; margin-bottom: 4px; }
+      .team-title { font-size: 1.06rem; margin-bottom: 8px; }
+      .about-box { font-size: 0.85rem; padding: 0.58em 0.18em;}
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <section class="team">
+    <h2 class="about-us">About Us</h2>
+    <h1 class="team-title">BroCode</h1>
+    <div class="team-members">
+      <div class="member-card" tabindex="0">
+        <div class="member-info">
+          <div class="member-top-row">
+            <span class="member-name">Aryan Jaiswal</span>
+            <span class="socials">
+              <a href="https://www.linkedin.com/in/aryan-jaiswal-87b913327/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </span>
+          </div>
+          <span class="member-role">B.Tech, Computer Science and Engineering, 2nd Year – MMMUT Gorakhpur</span>
+        </div>
+        <img class="member-img-pop" src="aryan.jpg" alt="Aryan Jaiswal" />
+      </div>
+      <div class="member-card" tabindex="0">
+        <div class="member-info">
+          <div class="member-top-row">
+            <span class="member-name">Ansh Srivastava</span>
+            <span class="socials">
+              <a href="https://www.linkedin.com/in/ansh-srivastava-23377a335/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </span>
+          </div>
+          <span class="member-role">B.Tech, Computer Science and Engineering, 2nd Year – MMMUT Gorakhpur</span>
+        </div>
+        <img class="member-img-pop" src="ansh.jpg" alt="Ansh Srivastava" />
+      </div>
+    </div>
+    <div class="about-box">
+      BroCode is a team of passionate technologists from MMMUT Gorakhpur, committed to curiosity, innovation, and excellence.<br>
+      We thrive on collaboration, believing that the best ideas come from teamwork and constructive feedback.<br>
+      Driven by innovation, we are always exploring new solutions and creative approaches.<br>
+      Most importantly, we see every challenge as a chance to grow—because learning never stops at BroCode.
+    </div>
+  </section>
+  <script>
+    // Blur all other cards on mouseenter (avoid double pop)
+    document.querySelectorAll('.member-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        document.querySelectorAll('.member-card').forEach(c => {
+          if (c !== card) c.blur();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
