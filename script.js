@@ -1,3 +1,47 @@
+window.addEventListener("load", () => {
+  const counter = document.getElementById("counter");
+  const now = document.getElementById("now");
+  const loader = document.getElementById("loader");
+  const content = document.querySelector(".main-content");
+
+  const fonts = [
+  "Courier New", "Arial Black", "Comic Sans MS", "Georgia", "Impact",
+  "Lucida Console", "Tahoma", "Verdana", "Trebuchet MS", "Times New Roman",
+  "Brush Script MT", "Franklin Gothic Medium", "Garamond", "Copperplate"
+];
+
+  // Count from 0 to 100 in 2.5 seconds (2500ms)
+  let start = 0;
+  let end = 100;
+  let duration = 2500;
+  let stepTime = Math.floor(duration / end);
+
+  let interval = setInterval(() => {
+    counter.textContent = start;
+    start++;
+    if (start > end) {
+      clearInterval(interval);
+    }
+  }, stepTime);
+
+  // Blink & change font on NOW every 500ms
+  setInterval(() => {
+    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+    now.style.fontFamily = randomFont;
+  }, 300);
+
+  // Hide loader and show content after 3.5s
+  setTimeout(() => {
+    loader.style.opacity = 0;
+    loader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 500);
+  }, 3500);
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const mapWrapper = document.getElementById('mapWrapper');
     const splashEffect = document.getElementById('splashEffect');
