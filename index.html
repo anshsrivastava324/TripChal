@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Chal - Explore India</title>
+    <title>States & Stones - Explore India</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for classy typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Loader -->
-  <div id="loader">
-    <div>
-        <h1 class="loader-text">
-    <span id="counter-box"><span id="counter">0</span>-100</span>
-    <span class="loader-part part1">YOUR WEB</span><br>
-      <span class="loader-part part2"> EXPERIENCE</span><br>
-    <span class="loader-part part3">IS LOADING RIGHT
-    <span id="now">NOW</span>
-    </span>
-  </h1>
-    <p class="loader-subtext">Please wait <br> a few seconds...</p>
+    <div id="loader">
+        <div>
+            <h1 class="loader-text">
+                <span id="counter-box"><span id="counter">0</span>-100</span>
+                <span class="loader-part part1">YOUR WEB</span><br>
+                <span class="loader-part part2"> EXPERIENCE</span><br>
+                <span class="loader-part part3">IS LOADING RIGHT
+                <span id="now">NOW</span>
+                </span>
+            </h1>
+            <p class="loader-subtext">Please wait <br> a few seconds...</p>
+        </div>
     </div>
-  </div>
 
     <div class="trip-chal-container">
-        <!-- About Us Button -->
-        <button class="about-us-btn" onclick="window.location.href='aboutUs.html'">About Us</button>
-        
         <!-- Left Facts Sidebar -->
         <div class="facts-sidebar facts-sidebar-left">
             <h3>Historical Facts</h3>
@@ -41,7 +44,16 @@
 
         <!-- Central Map Container -->
         <div class="map-center">
+            <!-- Title Above Map Container -->
+            <div class="map-title-container">
+                <h1 class="map-title">States & Stones</h1>
+                <p class="map-subtitle">Explore India's Rich Heritage</p>
+            </div>
+            
             <div class="india-map-wrapper" id="mapWrapper">
+                <!-- Stones Button - Top Right Corner of Map -->
+                <button class="stones-btn map-corner-btn" onclick="openStonesPage()">Stones</button>
+                
                 <!-- Your Complete MapSVG India Map -->
                 <svg
    xmlns:mapsvg="http://mapsvg.com"
@@ -220,12 +232,14 @@
             <ul>
                 <li><strong>UNESCO Sites:</strong><br>40 World Heritage Sites</li>
                 <li><strong>Festivals:</strong><br>Diwali, Holi, Eid, Christmas celebrated</li>
-                <li><strong>Cuisine:</strong><br>Diverse regional cuisines with spices</li>
                 <li><strong>Art Forms:</strong><br>Classical dance, music, paintings</li>
                 <li><strong>Architecture:</strong><br>Temples, forts, palaces, monuments</li>
                 <li><strong>Wildlife:</strong><br>Tigers, elephants, 500+ sanctuaries</li>
                 <li><strong>Rivers:</strong><br>Ganges, Yamuna, Brahmaputra</li>
             </ul>
+            
+            <!-- About Us Button - Bottom of Right Sidebar -->
+            <button class="about-us-btn sidebar-bottom-btn" onclick="window.location.href='aboutUs.html'">About Us</button>
         </div>
     </div>
 
@@ -236,8 +250,8 @@
     <div id="aboutModal" class="about-modal">
         <div class="about-modal-content">
             <span class="close-btn" onclick="closeAboutModal()">&times;</span>
-            <h2>About Trip Chal</h2>
-            <p>Trip Chal is an interactive platform designed to explore India's rich history and diverse heritage. Our mission is to make learning about India's past engaging and accessible through innovative web experiences.</p>
+            <h2>About States & Stones</h2>
+            <p>States & Stones is an interactive platform designed to explore India's rich history and diverse heritage. Our mission is to make learning about India's past engaging and accessible through innovative web experiences.</p>
             <p>Created by passionate developers who love India's cultural diversity and want to share it with the world!</p>
         </div>
     </div>

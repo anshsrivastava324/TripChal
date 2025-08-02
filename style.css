@@ -12,98 +12,95 @@ body {
 
 /* Loader Container */
 #loader {
-  position: fixed;
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  background-color: #0d1117;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  text-align: center;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: #0d1117;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
 }
 
 /* Loader Text Block */
 .loader-text {
     font-family: 'Garamond', 'Times New Roman', serif;
-  font-size: 80px;
-  color: #fbfbfb;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: inline-block;
-  line-height: 1.6;
-  text-align: left;
-  margin-left: 40px;
+    font-size: 80px;
+    color: #fbfbfb;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 1.6;
+    text-align: left;
+    margin-left: 40px;
 }
 
 /* x-100 Style */
 #counter-box {
-  font-size: 30px;
-  font-style: italic;
-  font-family: "Lucida Console", "Fira Code", "Courier New", monospace;
-  font-weight: 600;
-  margin-right: 8px;
-  color: #f0f6fc;
+    font-size: 30px;
+    font-style: italic;
+    font-family: "Lucida Console", "Fira Code", "Courier New", monospace;
+    font-weight: 600;
+    margin-right: 8px;
+    color: #f0f6fc;
 }
 
 /* Smooth slide-up loader parts */
 .loader-part {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: slideUp 0.6s ease-out forwards;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
 }
 
 .part1 {
-  animation-delay: 0.4s;
+    animation-delay: 0.4s;
 }
 
 .part2 {
-  animation-delay: 0.8s;
+    animation-delay: 0.8s;
 }
 
 .part3 {
-  animation-delay: 1.2s;
+    animation-delay: 1.2s;
 }
 
 .loader-subtext {
-  opacity: 0;
-  font-size: 14px;
-  color: #c9d1d9;
-  margin-top: 20px;
-  animation: fadeInSubtext 0.8s ease forwards;
-  animation-delay: 1.6s;
-  text-transform: none;
+    opacity: 0;
+    font-size: 14px;
+    color: #c9d1d9;
+    margin-top: 20px;
+    animation: fadeInSubtext 0.8s ease forwards;
+    animation-delay: 1.6s;
+    text-transform: none;
 }
 
 /* Fade-in for subtext */
 @keyframes fadeInSubtext {
-  to {
-    opacity: 0.6;
-  }
+    to {
+        opacity: 0.6;
+    }
 }
-
 
 /* Slide-up animation */
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* NOW word blinking and font animation */
 @keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 #now {
-  animation: blink 1s infinite, slideUp 0.6s ease-out forwards;
-  transition: font-family 0.3s ease;
+    animation: blink 1s infinite, slideUp 0.6s ease-out forwards;
+    transition: font-family 0.3s ease;
 }
-
-
 
 .trip-chal-container {
     display: flex;
@@ -113,36 +110,72 @@ body {
     position: relative;
 }
 
-/* About Us Button */
-.about-us-btn {
+/* Remove old main title styles */
+.main-title-container {
+    display: none;
+}
+
+.main-title {
+    display: none;
+}
+
+/* Remove old navigation container styles */
+.nav-buttons-container {
+    display: none;
+}
+
+/* New Map Title Styling - Above Map Container */
+.map-title-container {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.map-title {
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #1a1a2e;
+    text-shadow: 
+        0 1px 0 rgba(75, 72, 72, 0.882),
+        0 2px 0 rgba(0, 0, 0, 0.695),
+        0 3px 5px rgba(0,0,0,0.15),
+        0 6px 10px rgba(25, 149, 173, 0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #1995AD 0%, #0d1117 50%, #1995AD 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.map-title::after {
+    content: '';
     position: absolute;
-    right: 30px;
-    top: 20px;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    background: linear-gradient(45deg, #1995AD, #A1D6E2);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 100;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(25, 149, 173, 0.3);
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #1995AD, #A1D6E2);
+    border-radius: 2px;
 }
 
-.about-us-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(25, 149, 173, 0.4);
-    background: linear-gradient(45deg, #0d7a8a, #1995AD);
+.map-subtitle {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.2rem;
+    color: rgba(26, 26, 46, 0.8);
+    font-weight: 400;
+    font-style: italic;
+    margin: 10px 0 0 0;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
 }
 
-.about-us-btn:focus {
-    outline: 3px solid rgba(161, 214, 226, 0.6);
-    outline-offset: 2px;
-}
-
-/* Facts Sidebars - Back to original positioning */
+/* Facts Sidebars */
 .facts-sidebar {
     width: 280px;
     padding: 30px 20px;
@@ -160,7 +193,14 @@ body {
 }
 
 .facts-sidebar-right { 
-    border-left: 4px solid #A1D6E2; 
+    border-left: 4px solid #A1D6E2;
+    display: flex;
+    flex-direction: column;
+}
+
+.facts-sidebar-right h3,
+.facts-sidebar-right ul {
+    flex-shrink: 0;
 }
 
 .facts-sidebar h3 {
@@ -255,6 +295,7 @@ body {
 .map-center {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -278,6 +319,78 @@ body {
     width: 100%;
     height: 100%;
     user-select: none;
+}
+
+/* Stones Button - Top Right Corner of Map Container */
+.map-corner-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 50;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.stones-btn {
+    background: linear-gradient(45deg, #8B4513, #CD853F);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.stones-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    background: linear-gradient(45deg, #654321, #8B4513);
+}
+
+.stones-btn:focus {
+    outline: 3px solid rgba(205, 133, 63, 0.6);
+    outline-offset: 2px;
+}
+
+/* About Us Button - Bottom of Right Sidebar */
+.sidebar-bottom-btn {
+    margin-top: auto;
+    margin-bottom: 20px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-us-btn {
+    background: linear-gradient(45deg, #1995AD, #A1D6E2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(25, 149, 173, 0.3);
+}
+
+.about-us-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 149, 173, 0.4);
+    background: linear-gradient(45deg, #0d7a8a, #1995AD);
+}
+
+.about-us-btn:focus {
+    outline: 3px solid rgba(161, 214, 226, 0.6);
+    outline-offset: 2px;
+}
+
+/* Active states for buttons */
+.stones-btn:active,
+.about-us-btn:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
 }
 
 /* State Styling - Works with MapSVG paths */
@@ -308,6 +421,11 @@ body {
     outline-offset: 2px;
 }
 
+#indiaMap path.state-active,
+#indiaMap .state.state-active {
+    filter: drop-shadow(0 0 10px rgba(25, 149, 173, 0.6));
+}
+
 /* State Tooltip */
 .state-tooltip {
     position: fixed;
@@ -325,6 +443,7 @@ body {
     border: 2px solid rgba(241, 241, 242, 0.3);
     opacity: 0;
     transform: scale(0.8);
+    display: none;
 }
 
 .state-tooltip.show {
@@ -524,6 +643,11 @@ body {
     color: #0d7a8a;
 }
 
+.close-btn:focus {
+    outline: 2px solid rgba(241, 241, 242, 0.5);
+    outline-offset: 2px;
+}
+
 .about-modal h2 {
     margin-bottom: 20px;
     color: #F1F1F2;
@@ -589,6 +713,15 @@ body {
         width: 700px;
         height: 550px;
     }
+    
+    .map-title {
+        font-size: 3rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .map-subtitle {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 992px) {
@@ -603,9 +736,22 @@ body {
         height: 500px;
     }
     
-    .about-us-btn {
-        font-size: 14px;
-        padding: 10px 20px;
+    .map-title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .map-subtitle {
+        font-size: 1rem;
+    }
+    
+    .map-title-container {
+        margin-bottom: 20px;
+    }
+    
+    .map-corner-btn {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }
 
@@ -638,6 +784,33 @@ body {
     .india-map-wrapper {
         width: 95%;
         height: 400px;
+    }
+    
+    .map-title {
+        font-size: 2rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .map-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .map-title-container {
+        margin-bottom: 15px;
+    }
+    
+    .map-corner-btn {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .sidebar-bottom-btn {
+        margin-bottom: 15px;
+        padding: 10px 16px;
+        font-size: 14px;
     }
     
     .splash-effect {
@@ -693,11 +866,29 @@ body {
         padding: 10px;
     }
     
-    .about-us-btn {
-        right: 15px;
-        top: 10px;
-        font-size: 12px;
-        padding: 8px 16px;
+    .map-title {
+        font-size: 1.6rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .map-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .map-title::after {
+        width: 60px;
+        height: 2px;
+        bottom: -5px;
+    }
+    
+    .map-corner-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+    
+    .sidebar-bottom-btn {
+        padding: 8px 14px;
+        font-size: 13px;
     }
     
     .splash-effect {
@@ -732,12 +923,19 @@ body {
     }
 }
 
-/* Print Styles */
+/* Print styles */
 @media print {
+    .map-title-container,
+    .map-corner-btn,
+    .sidebar-bottom-btn,
     .splash-effect,
-    .about-us-btn,
     .facts-sidebar {
         display: none;
+    }
+    
+    .map-title {
+        color: black !important;
+        -webkit-text-fill-color: black !important;
     }
     
     .india-map-wrapper {
@@ -745,5 +943,53 @@ body {
         height: auto;
         background: white;
         box-shadow: none;
+    } 
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .map-title {
+        -webkit-text-fill-color: #ffffff;
+        color: #ffffff;
+    }
+    
+    .stones-btn,
+    .about-us-btn {
+        border: 2px solid #ffffff;
+    }
+}
+
+/* Focus styles for better accessibility */
+.stones-btn:focus-visible,
+.about-us-btn:focus-visible,
+.facts-sidebar li:focus-visible {
+    outline: 3px solid #4ecdc4;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+    background-color: rgba(25, 149, 173, 0.3);
+    color: #F1F1F2;
+}
+
+::-moz-selection {
+    background-color: rgba(25, 149, 173, 0.3);
+    color: #F1F1F2;
 }
