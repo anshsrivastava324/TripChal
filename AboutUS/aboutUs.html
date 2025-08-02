@@ -10,6 +10,38 @@
       background: #f4f4f8;
       color: #222;
     }
+    
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #191970;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(25, 25, 112, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .back-button:hover {
+      background: #1625b0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(25, 25, 112, 0.4);
+    }
+    
+    .back-button:active {
+      transform: translateY(0);
+    }
+    
     section.team {
       width: calc(100vw - 3cm);
       margin: 40px auto;
@@ -186,6 +218,7 @@
       .about-us { font-size: 1.08rem; }
       .member-name { font-size: 1.04rem; }
       .member-role { font-size: 0.98rem; }
+      .back-button { padding: 10px 14px; font-size: 0.9rem; }
     }
     @media (max-width: 500px) {
       section.team { width: calc(100vw - 1.25cm);}
@@ -194,11 +227,22 @@
       .about-us { font-size: 1rem; margin-bottom: 4px; }
       .team-title { font-size: 1.06rem; margin-bottom: 8px; }
       .about-box { font-size: 0.85rem; padding: 0.58em 0.18em;}
+      .back-button { 
+        top: 10px; 
+        left: 10px; 
+        padding: 8px 12px; 
+        font-size: 0.85rem; 
+      }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <a href="..\index.html" class="back-button">
+    <i class="fas fa-arrow-left"></i>
+    Back
+  </a>
+  
   <section class="team">
     <h2 class="about-us">About Us</h2>
     <h1 class="team-title">BroCode</h1>

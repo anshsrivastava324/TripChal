@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STONES : INDIAN MONUMENTS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+  background: linear-gradient(120deg, #092327 0%, #0B5351 70%, #00A9A5 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+.heading {
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 6px 36px #092327, 0 1px 0px #fff2;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  text-align: center;
+  line-height: 1.1em;
+  background: linear-gradient(90deg,#00a9a5 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  word-break: break-word;
+}
+.button-row {
+  width: auto;
+  max-width: none;
+  margin: 16px 0 16px 14px; /* Position at top-left */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+.states-btn {
+  background: linear-gradient(90deg, #00A9A5 60%, #0B5351 100%);
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+  font-size: 1.15em;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 26px;
+  box-shadow: 0 2px 10px #00a9a599;
+  padding: 7px 20px 7px 10px;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none; /* Added for anchor styling */
+}
+.states-btn:hover, .states-btn:focus {
+  background: linear-gradient(90deg, #019c93 70%, #0B5351 100%);
+  color: #fff;
+  box-shadow: 0 4px 22px #00a9a555;
+}
+.arrow-left {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 3px;
+}
+/* ----- Responsive Styles ----- */
+@media (max-width: 900px) {
+  .heading { font-size: 2em; padding: 0 2vw;}
+  .button-row { width: auto; margin-left: 10px; }
+  .states-btn { font-size: 1em; padding: 6px 18px 6px 9px; }
+}
+@media (max-width: 600px) {
+  .button-row { width: auto; }
+  .states-btn { font-size: 0.9em; padding: 5px 14px 5px 8px;}
+  .heading { font-size: 1.25em; }
+}
+/* --- Slideshow and rest of your styles unchanged --- */
+.slideshow-rail {
+  width: 92vw;
+  margin: 16px auto 16px auto;
+  overflow: hidden;
+  border-radius: 24px;
+  background: transparent;
+  height: 345px;
+  position: relative;
+  z-index: 201;
+}
+.slides-track {
+  display: flex;
+  width: max-content;
+  align-items: flex-end;
+  height: 100%;
+  animation: scroll-rail 40s linear infinite;
+  padding: 18px 0 10px 0;
+  position: relative;
+}
+.slideshow-rail:hover .slides-track {
+  animation-play-state: paused;
+}
+.slide {
+  min-width: 260px;
+  margin: 0 22px 0 0;
+  height: 295px;
+  position: relative;
+  flex-shrink: 0;
+  background: transparent;
+  border-radius: 15px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: filter 0.24s;
+  z-index: 202;
+  cursor: pointer;
+}
+.slide img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: transparent;
+  transition: transform 0.28s cubic-bezier(.22,.7,.35,1);
+  z-index: 1;
+  margin-bottom: 14px;
+}
+.slide:hover img,
+.slide.active img {
+  transform: scale(1.10) translateY(-10px);
+}
+.slides-track:has(.slide:hover) .slide:not(:hover) {
+  filter: brightness(55%) blur(1.7px) grayscale(0.18);
+}
+.monument-title {
+  font-size: 1.09em;
+  color: #F0FAF8;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.01em;
+  background: none;
+  width: auto;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 2px 14px #09232755;
+}
+@keyframes scroll-rail {
+  0%   { transform: translateX(0);}
+  100% { transform: translateX(-50%);}
+}
+.detail-box {
+  width: 92vw;
+  min-height: 72px;
+  margin: 34px auto 0 auto;
+  border-radius: 22px;
+  padding: 24px 40px;
+  font-size: 1.11em;
+  color: #F0FAF8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  background: rgba(15,32,39,0.7);
+  box-shadow: none !important;
+  border: none;
+  transition: color 0.2s, opacity 0.3s;
+  position: relative;
+  z-index: 20;
+}
+.detail-box.show {
+  display: flex;
+}
+.detail-box h3 {
+  margin: 0 0 7px 0;
+  color: #00A9A5;
+  font-size: 1.27em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 10px #09232730;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.detail-box p {
+  margin: 0;
+  color: #bee9e8;
+  font-size: 1.08em;
+  line-height: 1.56;
+  letter-spacing: 0.01em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+@media (max-width: 900px) {
+  .slide { min-width: 130px; height: 120px; }
+  .slide img { height: 75px; border-radius: 8px; }
+  .monument-title { font-size: 0.93em; }
+  .slideshow-rail, .detail-box { width: 98vw; padding-left: 2vw; padding-right: 2vw; }
+  .detail-box { padding: 8px 6vw; min-height: 30px; font-size: 1em;}
+  .detail-box h3 { font-size: 1.06em; }
+  .heading { font-size: 2em; }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="heading">STONES : INDIAN MONUMENTS</div>
+  <div class="button-row">
+    <a href="..\index.html" class="states-btn">
+      <i class="arrow-left"></i>Back
+    </a>
+  </div>
+  <div class="slideshow-rail">
+    <div class="slides-track" id="slidesTrack">
+      <!-- 15 Famous Indian Monuments, Duplicated for Infinite Loop -->
+      <div class="slide" data-title="Taj Mahal" data-description="A marble mausoleum built by Emperor Shah Jahan for Mumtaz Mahal in Agra, India. Recognized as a UNESCO World Heritage site and one of the New 7 Wonders of the World. Famed for its stunning architecture and the love story behind it.">
+        <img src="tajmahal.jpg" alt="Taj Mahal"><div class="monument-title">Taj Mahal</div>
+      </div>
+      <div class="slide" data-title="Qutub Minar" data-description="A 73-meter tall minaret built in early 13th-century Delhi. Made of red sandstone and marble, it is the highest brick minaret in the world. The Qutub complex is a UNESCO World Heritage site.">
+        <img src="qutubminar.jpg" alt="Qutub Minar"><div class="monument-title">Qutub Minar</div>
+      </div>
+      <div class="slide" data-title="India Gate" data-description="A 42-meter tall triumphal arch in New Delhi, inspired by Paris' Arc de Triomphe. Commemorates Indian soldiers who died in WWI. An iconic national symbol.">
+        <img src="indiagate.jpg" alt="India Gate"><div class="monument-title">India Gate</div>
+      </div>
+      <div class="slide" data-title="Mysore Palace" data-description="An opulent royal residence in Mysuru, Karnataka, renowned for Indo-Saracenic architecture and illumination during festivals.">
+        <img src="mysorepalace.jpg" alt="Mysore Palace"><div class="monument-title">Mysore Palace</div>
+      </div>
+      <div class="slide" data-title="Hawa Mahal" data-description="A pink sandstone palace in Jaipur known for unique facade with 953 small windows for royal ladies.">
+        <img src="hawamahal.jpg" alt="Hawa Mahal"><div class="monument-title">Hawa Mahal</div>
+      </div>
+      <div class="slide" data-title="Victoria Memorial" data-description="A majestic marble building in Kolkata, built in memory of Queen Victoria, now a museum.">
+        <img src="victoriamemorial.jpg" alt="Victoria Memorial"><div class="monument-title">Victoria Memorial</div>
+      </div>
+      <div class="slide" data-title="Red Fort" data-description="A historic fort in Delhi built in 1648; symbol of India's independence struggle.">
+        <img src="redfort.jpg" alt="Red Fort"><div class="monument-title">Red Fort</div>
+      </div>
+      <div class="slide" data-title="Fatehpur Sikri" data-description="A 16th-century city near Agra founded by Emperor Akbar, famous for Mughal architecture.">
+        <img src="fatehpursikri.jpg" alt="Fatehpur Sikri"><div class="monument-title">Fatehpur Sikri</div>
+      </div>
+      <div class="slide" data-title="Ajanta Caves" data-description="Rock-cut Buddhist cave monuments in Maharashtra, known for magnificent paintings.">
+        <img src="ajantacaves.jpg" alt="Ajanta Caves"><div class="monument-title">Ajanta Caves</div>
+      </div>
+      <div class="slide" data-title="Ellora Caves" data-description="Group of rock-cut monuments featuring Buddhist, Hindu, and Jain art.">
+        <img src="elloracaves.jpg" alt="Ellora Caves"><div class="monument-title">Ellora Caves</div>
+      </div>
+      <div class="slide" data-title="Konark Sun Temple" data-description="A 13th-century temple in Odisha designed as a giant chariot.">
+        <img src="konarksuntemple.jpg" alt="Konark Sun Temple"><div class="monument-title">Konark Sun Temple</div>
+      </div>
+      <div class="slide" data-title="Gol Gumbaz" data-description="Famous mausoleum in Bijapur with massive dome and whispering gallery.">
+        <img src="golgumbaz.jpg" alt="Gol Gumbaz"><div class="monument-title">Gol Gumbaz</div>
+      </div>
+      <div class="slide" data-title="Sanchi Stupa" data-description="Ancient Buddhist complex in Madhya Pradesh, site of Great Stupa.">
+        <img src="sanchistupa.jpg" alt="Sanchi Stupa"><div class="monument-title">Sanchi Stupa</div>
+      </div>
+      <div class="slide" data-title="Meenakshi Temple" data-description="Historical Hindu temple in Madurai with towering gopurams and intricate carvings.">
+        <img src="meenakshitemple.jpg" alt="Meenakshi Temple"><div class="monument-title">Meenakshi Temple</div>
+      </div>
+      <div class="slide" data-title="Jaisalmer Fort" data-description="Large fort in Rajasthan called Golden Fort due to yellow sandstone walls.">
+        <img src="jaisalmerfort.jpg" alt="Jaisalmer Fort"><div class="monument-title">Jaisalmer Fort</div>
+      </div>
+      <!-- Duplicated slides for infinite loop -->
+      <div class="slide" data-title="Taj Mahal" data-description="A marble mausoleum built by Emperor Shah Jahan for Mumtaz Mahal in Agra, India. Recognized as a UNESCO World Heritage site and one of the New 7 Wonders of the World. Famed for its stunning architecture and the love story behind it.">
+        <img src="tajmahal.jpg" alt="Taj Mahal"><div class="monument-title">Taj Mahal</div>
+      </div>
+      <div class="slide" data-title="Qutub Minar" data-description="A 73-meter tall minaret built in early 13th-century Delhi. Made of red sandstone and marble, it is the highest brick minaret in the world. The Qutub complex is a UNESCO World Heritage site.">
+        <img src="qutubminar.jpg" alt="Qutub Minar"><div class="monument-title">Qutub Minar</div>
+      </div>
+      <div class="slide" data-title="India Gate" data-description="A 42-meter tall triumphal arch in New Delhi, inspired by Paris' Arc de Triomphe. Commemorates Indian soldiers who died in WWI. An iconic national symbol.">
+        <img src="indiagate.jpg" alt="India Gate"><div class="monument-title">India Gate</div>
+      </div>
+      <div class="slide" data-title="Mysore Palace" data-description="An opulent royal residence in Mysuru, Karnataka, renowned for Indo-Saracenic architecture and illumination during festivals.">
+        <img src="mysorepalace.jpg" alt="Mysore Palace"><div class="monument-title">Mysore Palace</div>
+      </div>
+      <div class="slide" data-title="Hawa Mahal" data-description="A pink sandstone palace in Jaipur known for unique facade with 953 small windows for royal ladies.">
+        <img src="hawamahal.jpg" alt="Hawa Mahal"><div class="monument-title">Hawa Mahal</div>
+      </div>
+      <div class="slide" data-title="Victoria Memorial" data-description="A majestic marble building in Kolkata, built in memory of Queen Victoria, now a museum.">
+        <img src="victoriamemorial.jpg" alt="Victoria Memorial"><div class="monument-title">Victoria Memorial</div>
+      </div>
+      <div class="slide" data-title="Red Fort" data-description="A historic fort in Delhi built in 1648; symbol of India's independence struggle.">
+        <img src="redfort.jpg" alt="Red Fort"><div class="monument-title">Red Fort</div>
+      </div>
+      <div class="slide" data-title="Fatehpur Sikri" data-description="A 16th-century city near Agra founded by Emperor Akbar, famous for Mughal architecture.">
+        <img src="fatehpursikri.jpg" alt="Fatehpur Sikri"><div class="monument-title">Fatehpur Sikri</div>
+      </div>
+      <div class="slide" data-title="Ajanta Caves" data-description="Rock-cut Buddhist cave monuments in Maharashtra, known for magnificent paintings.">
+        <img src="ajantacaves.jpg" alt="Ajanta Caves"><div class="monument-title">Ajanta Caves</div>
+      </div>
+      <div class="slide" data-title="Ellora Caves" data-description="Group of rock-cut monuments featuring Buddhist, Hindu, and Jain art.">
+        <img src="elloracaves.jpg" alt="Ellora Caves"><div class="monument-title">Ellora Caves</div>
+      </div>
+      <div class="slide" data-title="Konark Sun Temple" data-description="A 13th-century temple in Odisha designed as a giant chariot.">
+        <img src="konarksuntemple.jpg" alt="Konark Sun Temple"><div class="monument-title">Konark Sun Temple</div>
+      </div>
+      <div class="slide" data-title="Gol Gumbaz" data-description="Famous mausoleum in Bijapur with massive dome and whispering gallery.">
+        <img src="golgumbaz.jpg" alt="Gol Gumbaz"><div class="monument-title">Gol Gumbaz</div>
+      </div>
+      <div class="slide" data-title="Sanchi Stupa" data-description="Ancient Buddhist complex in Madhya Pradesh, site of Great Stupa.">
+        <img src="sanchistupa.jpg" alt="Sanchi Stupa"><div class="monument-title">Sanchi Stupa</div>
+      </div>
+      <div class="slide" data-title="Meenakshi Temple" data-description="Historical Hindu temple in Madurai with towering gopurams and intricate carvings.">
+        <img src="meenakshitemple.jpg" alt="Meenakshi Temple"><div class="monument-title">Meenakshi Temple</div>
+      </div>
+      <div class="slide" data-title="Jaisalmer Fort" data-description="Large fort in Rajasthan called Golden Fort due to yellow sandstone walls.">
+        <img src="jaisalmerfort.jpg" alt="Jaisalmer Fort"><div class="monument-title">Jaisalmer Fort</div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-box" id="detailBox"></div>
+  <script>
+    // Details box logic
+    const rail = document.getElementById('slidesTrack');
+    const slides = document.querySelectorAll('.slide');
+    const detailBox = document.getElementById('detailBox');
+    function clearDetails() {
+      detailBox.classList.remove('show');
+      detailBox.innerHTML = "";
+    }
+    function showDetails(slide) {
+      const title = slide.getAttribute('data-title');
+      const detail = slide.getAttribute('data-description');
+      detailBox.innerHTML = `<h3>${title}</h3><p>${detail}</p>`;
+      detailBox.classList.add('show');
+    }
+    slides.forEach(slide => {
+      slide.addEventListener('mouseenter', () => {
+        showDetails(slide);
+        slides.forEach(s => s.classList.toggle('active', s === slide));
+        rail.style.animationPlayState = 'paused';
+      });
+      slide.addEventListener('mouseleave', () => {
+        slides.forEach(s => s.classList.remove('active'));
+        clearDetails();
+        rail.style.animationPlayState = '';
+      });
+    });
+    rail.addEventListener('mouseleave', clearDetails);
+  </script>
+</body>
+</html>
