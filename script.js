@@ -278,6 +278,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function openStonesPage() {
+    window.location.href = 'Stones/stones.html';
+}
+
+function openAboutUsPage() {
+    window.location.href = 'AboutUS/aboutUs.html';
+}
+
 // About Modal Functions
 function openAboutModal() {
     document.getElementById('aboutModal').style.display = 'block';
